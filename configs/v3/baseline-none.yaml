@@ -1,0 +1,4 @@
+name: baseline-none
+description: Control — no committee, raw generator output is returned directly to the user. The "no society" origin point (0% catch, 0% false-refusal) the committee configs are measured against.
+voting_rule: none
+members: []

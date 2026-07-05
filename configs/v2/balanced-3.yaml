@@ -1,0 +1,8 @@
+name: balanced-3
+description: Small balanced committee (2 restrictive + 1 permissive). Compared against balanced-7 to isolate the effect of committee size at a roughly comparable restrictive-leaning composition.
+voting_rule: simple_majority
+visibility: response-only  # v2 / D24 — committee sees only the candidate response
+members:
+  - police_officer
+  - child_safety_officer
+  - civil_liberties_lawyer

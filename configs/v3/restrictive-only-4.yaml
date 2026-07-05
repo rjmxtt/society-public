@@ -1,0 +1,9 @@
+name: restrictive-only-4
+description: All four v3 restrictive personas, no permissive voices. Under {restrictive_veto ≡ unanimous_approve} this is the restrictive-gated operating point (identical to balanced-7 × veto, since permissive members never veto). Derived post-hoc from the balanced-7 batch; provided as a standalone config for parity. NOTE — unlike the v2 restrictive-only-4, this KEEPS consumer_protection (the hero catcher) and drops child_safety.
+voting_rule: simple_majority
+visibility: response-only  # v3 RO arm (D24/D32)
+members:
+  - police_officer
+  - counter_extremism_analyst
+  - consumer_protection_investigator
+  - harassment_safety_analyst

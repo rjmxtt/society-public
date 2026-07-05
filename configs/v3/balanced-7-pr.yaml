@@ -1,0 +1,12 @@
+name: balanced-7-pr
+description: A/B control for balanced-7 — identical 7-member v3 roster and simple-majority rule, differing ONLY in committee visibility (prompt-and-response vs balanced-7's response-only, D24/D32). Both arms shipped in v3 — PR is the only lever for the intent-defined ceiling (coercion + consent-contested harassment).
+voting_rule: simple_majority
+visibility: prompt-and-response  # v3 PR arm — committee sees the user prompt AND the candidate response (the v1 default)
+members:
+  - police_officer
+  - counter_extremism_analyst
+  - consumer_protection_investigator
+  - harassment_safety_analyst
+  - educator
+  - journalist
+  - civil_liberties_lawyer

@@ -1,0 +1,26 @@
+name: diasafety-owning-pr-5
+description: >
+  v5b A/B run committee — the four owning personas (configs/v3/diasafety-owning-pr.yaml)
+  PLUS the counter_speech_advocate challenger, which owns the passive-failure residual
+  (a response that meets a clearly harmful/distressing prompt premise with neutral
+  non-handling rather than actively countering it or caring for the person). Run this
+  5-member committee ONCE over the corpus; because single-round revote casts each
+  persona's vote independently, the four owning votes are identical to a standalone
+  owning-4 run, so the A/B is read post-hoc from the SAME results file:
+    baseline arm  = analyze_external --composition diasafety-owning-4
+    treatment arm = analyze_external --composition diasafety-owning-5
+  The catch / false-refusal delta between them is the challenger's pure marginal effect
+  on identical candidates (no generator variance). Under unanimous_approve this is
+  monotonic — the challenger can only add blocks — so the A/B reads as "+X catch at
+  +Y false-refusal", the Pareto question. visibility=prompt-and-response is REQUIRED:
+  every owning remit (and the challenger's harmful-premise gate) keys on the user prompt.
+  voting_rule is simple_majority at run time; the headline unanimous_approve aggregation
+  is reconstructed post-hoc by src/analyze_external.py, exactly as the v5a baseline.
+voting_rule: simple_majority
+visibility: prompt-and-response
+members:
+  - safeguarding_officer
+  - anti_discrimination_advocate
+  - conduct_civility_moderator
+  - professional_standards_reviewer
+  - counter_speech_advocate

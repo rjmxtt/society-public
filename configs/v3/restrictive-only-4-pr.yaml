@@ -1,0 +1,9 @@
+name: restrictive-only-4-pr
+description: PR twin of restrictive-only-4. The same four v3 restrictive personas, but visibility=prompt-and-response (the committee sees the user prompt as well as the candidate). Under {restrictive_veto ≡ unanimous_approve} this is the v3 Pareto-dominant operating point (docs/v3-headlines.md #1 — 84% catch / 10% FR). voting_rule is simple_majority at run time; the unanimous_approve aggregation is reconstructed post-hoc by src/analyze.py / src/analyze_external.py from the recorded votes. Used for the v5 external-benchmark anecdote (committee-as-classifier over DiaSafety).
+voting_rule: simple_majority
+visibility: prompt-and-response  # v5 PR arm (D24/D32) — the named best committee
+members:
+  - police_officer
+  - counter_extremism_analyst
+  - consumer_protection_investigator
+  - harassment_safety_analyst

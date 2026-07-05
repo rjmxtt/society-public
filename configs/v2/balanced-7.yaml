@@ -1,0 +1,12 @@
+name: balanced-7
+description: V1 default roster — 4 restrictive + 3 permissive personas, simple majority.
+voting_rule: simple_majority
+visibility: response-only  # v2 / D24 — committee sees only the candidate response
+members:
+  - police_officer
+  - child_safety_officer
+  - counter_extremism_analyst
+  - content_moderator
+  - educator
+  - journalist
+  - civil_liberties_lawyer

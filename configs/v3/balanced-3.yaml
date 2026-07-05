@@ -1,0 +1,8 @@
+name: balanced-3
+description: Small balanced committee (2 restrictive + 1 permissive) — v2's balanced-3 with child_safety_officer swapped for harassment_safety_analyst. A deliberately conservative frontier anchor that EXCLUDES the consumer_protection deception specialist, so it sits low on catch. Derived post-hoc from the balanced-7 batch.
+voting_rule: simple_majority
+visibility: response-only  # v3 RO arm (D24/D32)
+members:
+  - police_officer
+  - harassment_safety_analyst
+  - civil_liberties_lawyer

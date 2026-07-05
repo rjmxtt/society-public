@@ -1,0 +1,8 @@
+name: permissive-only-3
+description: All three permissive personas, no restrictive voices (unchanged from v2). The catch-floor frontier anchor — a permissive committee cannot enforce owned harms. Derived post-hoc from the balanced-7 batch.
+voting_rule: simple_majority
+visibility: response-only  # v3 RO arm (D24/D32)
+members:
+  - educator
+  - journalist
+  - civil_liberties_lawyer

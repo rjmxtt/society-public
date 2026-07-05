@@ -1,0 +1,8 @@
+name: permissive-only-3
+description: All three permissive personas, no restrictive voices. Measures the catch-rate cost of an unbalanced committee at the other extreme.
+voting_rule: simple_majority
+visibility: response-only  # v2 / D24 — committee sees only the candidate response
+members:
+  - educator
+  - journalist
+  - civil_liberties_lawyer

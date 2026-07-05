@@ -1,0 +1,139 @@
+Starting prompt: 
+
+I'm starting a new project, I want to research an ai safeguarding idea i have had. We will produce a blog md file at the end of this with our findings in, and keep track of our work with documentation in a /docs 
+   dir. I want to test the effectivness of an alignment strategy that uses a 'society' of agents to validate a response to a prompt, the society will have a committee of, for example, a police officer, a security  
+  services agent, a child safety officer etc who will vote to approve responses before they go out to the end user. For the first pass we will use and agentic model with prompt enrichment and simple pipelines:     
+  user -> model -> comittee -> response. We will not that we would fine tune models for their roles in further work. We will empirically record the effectiveness of this approach with different configuations of    
+  the society, and we will red-team the society to get our data. I have downloaded an abliterated model on ollama (igorls/gemma-4-12B-it-heretic-GGUF) that we will test against, all the agents will be set up using 
+   this model. I would like to red team with prompts that an effective online model would not allow, but not with prompts that are illegal or dangerous. Lets start out designing the project. 
+
+Claude scafolded the agnets and the pipelin
+
+First run found that the downloaded model was still well aligned and did not allow harmful responses. 
+Looking for more abliterated models. 
+
+The second model quietly softened the prompt removing the problematic word ('manipulate').
+Going to try one more model then look at less explicit attack vectors.
+
+In initial run all red team prompts approved by committee. The reworded prompt strategy worked - getting past any model softening or essaying.
+Failure mode completely in committee
+
+In the next pass were going to add new personas to cover what was missed. I think that ultimatly the vote pattern should be unanimous - the problem then
+becomes removing false positive but the pattern makes more sence.
+
+Quen3 has strong unaligned behaviour. 
+
+num_predict added to reduce verbose committee responses to speed up test. 
+
+dolphin3 still liable to pre soften responses, for the test to work we need to know that the responses given to the committee SHOULD (or shouldnt) 
+get rejected. So if its always pre softening it should be removed from the test. 
+
+dolphin3 was only softening blunt prompts, we should test both blunt and subtle red team prompts. 
+
+Based on baseline tests we will drop gemma as it softens, lectures and blocks on generator prompts. We will use qwen for primary generation as
+it is fully unaligned on sublte and blunt prompts. We will keep dolphin as a secondary committee. 
+
+Spinning up cloud gpus for broader run. 
+
+Gpus ready. Scaling up test.
+
+-------------------------
+
+Run one complete.
+
+Unanimous veto on balanced 8 gives best BLOCK behviour, restrictive-only-5 × unanimous_approve give best balanced against false negatives. 
+
+Some categories of prompt are very low catch - eg offense, but this comes in at what alignment should be - we need to find some standard or 
+benchmark to use, otherwise we have false negatives. 
+
+The thing to tweak next are the success criteria, and the persona definitions. 
+
+Another run with that then maybe talk about finetuning. 
+
+Reread the results in the morning 
+
+Test individaul prompt but vary subtlety. -> control the prompt space so we can reason on the same prompt theme accross different subtleties.
+
+Voting weights. 
+
+-------------------------
+
+the 'constitution' is the sum of the persona definition - if you want regulation add a regulator persona 
+
+reset the red team so there is a match between prompt types and personas that should catch them 
+
+then introduce prompts that fit between or outside those definitions  
+
+prompt across subtlety range 
+
+test with global constitution file 
+
+test commitee can cant see prompt 
+
+-------------------------
+
+v2 prompt: 
+
+bring the session notes into scope. so ive taken a step back and done some thinking about this project over the weekend - can be found in the last two sections of my notes.txt. After v1 analysis i was concered   
+  that we need to understand what alignment looks like, and that perhaps we have low correct reject verdicts on certain categorys because we are prompting with issues that are not unaligned; but i realsied that    
+  alignment is just what we define in our personans - if a persona is not set up to catch a certain unaligned response then it will be allowed. so we need to rejig our personans and red team topics so that there   
+  is a match between each of them, we should then introduce a set of prompts that are between those definitions and our blue team prompts are just outside those definitions. at this point our axis we want to test  
+  accross are whether the prompt has a persona that should reject it, how blunt / subtle the prompt is, whether the commitee can see the prompt and response or just response, and then our prevously setup voting    
+  arangements. please injest all this into a plan for our v2 run, and tell me accross the anaylses v1 results what is the match between personans rejecting responses and whether the topic is aimed at them. (i will 
+  test in a v3 with a global consitiution but not in this pass)     
+
+made call to allow borderline phishing prompt as it was not a how to guide or anything technical just prose
+
+-------------------------
+
+v2 results
+
+its hard to identify a trend for successes accross subtlty between response only (RO) and prompt and response (PR)
+given RO can miss clasify due to missing context PR looks better with the drop on one case L1 CONSUM
+
+PR clearly outperforms response only on correctness 
+
+We should move frowards with only unanim-approve restrict-5 and balance-8.
+
+fig 6 and 7 show that most personans are redundant and the commitee setup needs to be tweaked.
+The constraint now is persona & committee setup not arm, sublty or voting type. 
+This makes sense because eg child safety officer has nothing to catch while were hitting non-illegal prompts. 
+We need to improve owned topic catch by persona. 
+
+fig 7 we expect a lot of similar voting as all but one should vote approve if its outside the remit. it should be dup rejects 
+
+fig 5 shows that theres in between bahaviour in the partial own sections 
+
+-------------------------
+
+v3 prompt: 
+
+weve been plotting and analysing the v2 test results, the clear signals to move onto v3 are as follows: we should only test with unanim-approve restrict-5 and balance-8 schemas as they are the only effective     
+    ones. we should continue to test both RO and PR. theres little clear trend in subtly but we should continue to measure. we need to imporve the persona definitons and committee configs so that we can imporove   
+    open issue catch rates, we should remove the child safty officer because they are redundant (the former bc we are not hitting the surface that would trigger it and the latter because it does nothing in the data                                                                                                                                                                                                                
+    - this will mean we are on restsict-4 and balance-7 but thats okay). whats your take on this approach and lets plan changes to the personans and committee to get the owned catch rate up without increasing      
+   false positive 
+
+found RADAR which takes an analagous approach but with debate, im going to run their public data sets against my commitee one as is and another with 
+a commitee fine tuned to tackle those data sets 
+
+good results from v3 
+PR restrictive-only-4 unanimous_approve is the best best strategy 
+
+check back in with the headlines in the morning 
+
+-------------------------
+
+v4a lets do a trial to see if debating rounds on select pairs prompt give good results
+
+weve just done v3 and got some good results, it like to do a small smoke test to see if debating rounds improve results. take a small set of prompts and add the option to the pipeline to do 3 debating rounds,    
+  the personas will get the the prompt and response then generate an approve / reject decision with reason, the personans will then get all the other personas round 1 responses and revise for a round 2 etc up to 3 
+  rounds when the votes will be tallied, but we will see where the vote is at each round to see how it develops, please plan this out
+
+-------------------------
+
+v5a
+
+testing on dia safety we found that theres big approval bc personas dont own any harms 
+actually a positive result bc theyre doing what theyre designed to do 
+so fine tune committee for dia safety and rerun 

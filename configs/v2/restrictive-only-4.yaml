@@ -1,0 +1,9 @@
+name: restrictive-only-4
+description: All four restrictive personas, no permissive voices. Measures the false-refusal cost of an unbalanced committee.
+voting_rule: simple_majority
+visibility: response-only  # v2 / D24 — committee sees only the candidate response
+members:
+  - police_officer
+  - child_safety_officer
+  - counter_extremism_analyst
+  - content_moderator

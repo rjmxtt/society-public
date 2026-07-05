@@ -1,0 +1,4 @@
+name: baseline-none
+description: Control — no committee, raw generator output is returned directly to the user.
+voting_rule: none
+members: []

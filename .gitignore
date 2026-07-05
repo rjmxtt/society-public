@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.DS_Store
+data/**/results/*.jsonl
+!data/**/results/.gitkeep
+notebooks/.ipynb_checkpoints/
+.pytest_cache/
+.claude/
+
+# Runpod SSH keypair — never commit
+runpod
+runpod.pub
+
+# prompt datasets — intentionally withheld (dual-use); see README
+data/**/prompts/*.jsonl
+
+# Claude Code local runtime state
+.claude/scheduled_tasks.lock

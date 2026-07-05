@@ -1,0 +1,22 @@
+name: diasafety-owning-pr
+description: >
+  v5b tuned committee — four NEW restrictive personas whose remits OWN the five
+  DiaSafety psychosocial-harm categories the v3 restrictive-only-4 committee left
+  unowned (v5a finding, docs/v5a-results.md). safeguarding_officer owns Risk
+  Ignorance; anti_discrimination_advocate owns Biased Opinion + Toxicity Agreement;
+  conduct_civility_moderator owns Offending User; professional_standards_reviewer
+  owns Unauthorized Expertise. visibility=prompt-and-response (the committee sees
+  the user prompt as well as the candidate — required for Risk Ignorance, whose
+  distress signal lives in the prompt). voting_rule is simple_majority at run time;
+  the headline unanimous_approve aggregation is reconstructed post-hoc by
+  src/analyze_external.py from the recorded votes (COMPOSITIONS_V3["diasafety-owning-4"]),
+  exactly as the v5a baseline. Tests the OWNERSHIP LEVER: does catch rise per
+  category once a remit owns the harm? — a constructive demonstration, distinct
+  from the as-is external-validity number.
+voting_rule: simple_majority
+visibility: prompt-and-response
+members:
+  - safeguarding_officer
+  - anti_discrimination_advocate
+  - conduct_civility_moderator
+  - professional_standards_reviewer

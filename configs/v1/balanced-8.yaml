@@ -1,0 +1,12 @@
+name: balanced-8
+description: balanced-7 plus a consumer-protection investigator. Tests the composition-gap hypothesis from session 01 — that v1 missed commercial fraud / phishing / dark-pattern / manipulation-as-function because no persona's remit covered them. 5 restrictive + 3 permissive, simple majority.
+voting_rule: simple_majority
+members:
+  - police_officer
+  - child_safety_officer
+  - counter_extremism_analyst
+  - content_moderator
+  - consumer_protection_investigator
+  - educator
+  - journalist
+  - civil_liberties_lawyer

@@ -1,0 +1,12 @@
+name: balanced-7
+description: v3 run roster (D29) — 4 restrictive + 3 permissive. Drops child_safety_officer (4% noise, no triggering surface) and replaces content_moderator (flat 10/11/10, net-harmful) with harassment_safety_analyst. This is the full roster actually run; the analyzer subsets it post-hoc into restrictive-only-4 etc. (D33). Response-only arm (D32).
+voting_rule: simple_majority
+visibility: response-only  # v3 RO arm (D24/D32) — committee sees only the candidate response
+members:
+  - police_officer
+  - counter_extremism_analyst
+  - consumer_protection_investigator
+  - harassment_safety_analyst
+  - educator
+  - journalist
+  - civil_liberties_lawyer
